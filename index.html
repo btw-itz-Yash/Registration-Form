@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Vidhya Registration</title>
+
+    <style>
+      body {
+        background-color:lightblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        width: 800px;
+        min-height: 400px;
+        border: 2px solid blue;
+        background :-webkit-linear-gradient(left, #055a4f, #00c6ff);
+        /* border-radius: 30px; */
+        margin: 50px auto;
+        height: 100%;
+        margin-top: 3%;
+        /* padding: 3%; */
+        border-radius: 2.5rem;
+        
+      }
+      h2 {
+        text-align: center;
+      }
+      label {
+        margin-left: 30px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 300px;
+        height: 30px;
+        border: 0px;
+        outline: 0px;
+        border-radius: 20px;
+        /* background-color: transparent; */
+        border-bottom: 2px solid blue;
+        margin-bottom: 20px;
+      }
+      .fa-eye {
+        font-size: 30px;
+        color: blue;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        margin: 20px 20px;
+        width: 150px;
+        height: 40px;
+        background: rgb(54, 137, 200);
+        color: white;
+      }
+      #btn {
+        width: 100%;
+        margin-left: auto;
+      }
+      input:valid {
+        border-left: 10px solid green;
+      }
+      input:invalid {
+        border-left: 10px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Registration</h2>
+      
+      <!-- <form action="./account.html" method="get"> -->
+        <form method="post" autocomplete="off" name="google-sheet">
+        <!-- Form Elements: Collect the data -->
+        <div>
+          <label for="" class="labelS">Enter Your Name: </label>
+          <input type="text" placeholder="Enter your Name" name="Name" required/>
+        </div>
+        
+        <div>
+            <label for="" class="labelS">Enter Your Father's Name: </label>
+            <input type="text" placeholder="Enter your father's name" name="Fname" required/>
+        </div>
+        <div>
+            <label for="" class="labelS">Enter Your Address: </label>
+            <input type="text" placeholder="Enter your Address" name="Address" required/>
+        </div>
+
+        <div>
+            <label for="" class="labelS">Select Your Class: </label>
+            <select name="class" id="" >
+              <option disabled selected>Select From Below</option>
+              <option class="8">8</option>
+              <option class="9">9</option>
+              <option class="10">10</option>
+              <option class="11">11</option>
+              <option class="12">12</option>
+            </select>
+          </div>
+          <br>
+        <div>
+          <label for="" class="labelS" >Select Gender: </label>
+          <input type="radio" name="Gender" value="male"/> Male
+          <input type="radio" name="Gender" value="female" /> Female
+        </div>
+        <br />
+        <div>
+          <label for="" class="labelS">Select Hobbies: </label>
+          <input type="checkbox" name="Hobbies" value="Reading" /> Reading
+          <input type="checkbox" name="Hobbies" value="Writing" /> Writing
+          <input type="checkbox" name="Hobbies" value="Music" /> Music
+          <input type="checkbox" name="Hobbies" value="Sports" /> Sports
+          <input type="checkbox" name="Hobbies" value="Coding" /> Coding
+        </div>
+        <br />
+        <div>
+          <label for="" class="labelS">Select DOB: </label>
+          <input type="date" name="DOB" required/>
+        </div>
+        <br>
+        <div>
+            <label for="" class="labelS">Select Date of Joining: </label>
+            <input type="date" name="DOJ" required/>
+          </div>
+        <br />
+        
+        <div>
+            <label for="" class="labelS">Enter Personal Contact No.: </label>
+            <input type="number" name="personal no." required />
+          </div>
+          <br />
+          <div>
+            <label for="" class="labelS">Enter Parent's Contact No.: </label>
+            <input type="number" name="parents no." required />
+          </div>
+          <br />
+        <div id="btn">
+          <input type="submit" />
+          <input type="reset" />
+        </div>
+      </form>
+    </div>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzgJ-XoibIUgRC5RXmsicDUwZAxQ7qspCNvpwjFDrAQ8VQC89YVG5YU9vxrHIpvxQqseQ/exec'
+      const form = document.forms['google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("Thank You ! You're registered in explore vidhya....We will contact you soon. Have a nice day ^_^"))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+  </body>
+</html>
